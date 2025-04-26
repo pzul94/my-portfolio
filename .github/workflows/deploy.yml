@@ -20,9 +20,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
+        
+      - name: Install HTMLHint manually
+        run: npm install -g htmlhint
+        
       - name: Run HTMLHint
-        run: npx htmlhint "**/*.html"
+        run: htmlhint "**/*.html"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
