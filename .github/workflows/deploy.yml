@@ -25,7 +25,7 @@ jobs:
         run: npm install stylelint stylelint-config-standard --save-dev
 
       - name: Run Stylelint
-        run: npx stylelint "xx/x.css"
+        run: npx stylelint "**/*.css"
 
       - name: Install HTMLHint globally
         run: npm install -g htmlhint
