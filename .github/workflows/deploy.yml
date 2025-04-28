@@ -31,7 +31,7 @@ jobs:
         run: npm install -g htmlhint
 
       - name: Run HTMLHint
-        run: htmlhint "**/*.html"
+        run: npx htmlhint "**/*.html" --config .htmlhintrc
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
