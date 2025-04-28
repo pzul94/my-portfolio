@@ -13,6 +13,7 @@ body {
     color: #54ff70;
     font-size: 18px;
   }
+  
   nav {
     background-color: #ff00f2;
     padding: 15px;
@@ -30,5 +31,6 @@ body {
   
   nav a:hover {
     text-decoration: underline;
+  }
   }
   
