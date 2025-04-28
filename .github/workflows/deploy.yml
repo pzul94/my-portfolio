@@ -1,4 +1,4 @@
-name: Deploy website
+name: Deploy Website
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,29 +14,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install dependencies
         run: npm install
 
-      - name: Install Stylelint and Config
-        run: npm install stylelint stylelint-config-standard --save-dev
+      - name: Run HTMLHint
+        run: npx --yes htmlhint "**/*.html"
 
       - name: Run Stylelint
-        run: npx stylelint "**/*.css"
+        run: npx --yes stylelint "**/*.css"
 
-      - name: Install HTMLHint globally
-        run: npm install -g htmlhint
-
-      - name: Run HTMLHint
-        run: npx htmlhint "**/*.html" --config .htmlhintrc
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # adjust if your HTML is inside a folder
-
+      # (Optional) If everything passes, you can add deploy commands below!
 
