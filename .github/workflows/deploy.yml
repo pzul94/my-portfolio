@@ -21,11 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install htmlhint globally
+        run: npm install -g htmlhint
+
       - name: Run HTMLHint
-        run: npx --yes htmlhint "**/*.html"
+        run: htmlhint "**/*.html"
 
       - name: Run Stylelint
-        run: npx --yes stylelint "**/*.css"
-
-      # (Optional) If everything passes, you can add deploy commands below!
-
+        run: npx stylelint "**/*.css"
